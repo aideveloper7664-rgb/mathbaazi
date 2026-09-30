@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Baazi – Dimaag lagao, cash uthao | Free APK</title>
+<meta name="description" content="Math Baazi: tez math quiz, ₹10 entry, 10× tak jeeto. Tournaments, knockouts, leaderboard, UPI withdraw. Free APK download.">
+<meta property="og:title" content="Math Baazi – Dimaag lagao, cash uthao">
+<meta property="og:description" content="Progressive math quiz, tournaments, knockouts. Free APK.">
+<meta property="og:image" content="img/logo.png">
+<meta name="theme-color" content="#07040f">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07040f;--pan:#120a24;--ln:#2a1a4d;--pk:#ff2e88;--cy:#21f3e0;--go:#ffc83d;--tx:#f1eaff;--mu:#9d8fc4;
+--d:'Anton','Impact','Arial Narrow',sans-serif;--b:'Outfit','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.6 var(--b);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cy);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+h1,h2,h3{font-family:var(--d);font-weight:400;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+h2{font-size:clamp(36px,6vw,64px);margin-bottom:14px}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--pk),var(--go),var(--cy));z-index:99}
+#glow{position:fixed;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,#ff2e8828,transparent 65%);pointer-events:none;z-index:0;display:none}
+@media(hover:hover){#glow{display:block}}
+
+/* nav */
+nav{position:absolute;inset:0 0 auto;z-index:5}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:74px}
+.br{display:flex;align-items:center;gap:10px;font:400 26px var(--d);text-decoration:none;text-transform:uppercase}
+.br img{width:40px;height:40px}
+.pill{font-weight:700;font-size:15px;text-decoration:none;padding:9px 18px;border-radius:99px;border:1.5px solid var(--cy);color:var(--cy)}
+
+/* hero */
+.hero{position:relative;padding:118px 0 70px;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.hero h1{font-size:clamp(58px,10.5vw,138px)}
+.hero h1 span{display:block;background:linear-gradient(95deg,var(--pk),var(--go) 60%,var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin:22px 0 30px;font-size:20px;color:#d3c8f0;max-width:27em}
+.lead b{color:var(--go)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:20px 38px;border-radius:18px;background:linear-gradient(120deg,var(--pk),#ff7a3d 55%,var(--go));color:#1b0410;font:400 28px var(--d);text-transform:uppercase;letter-spacing:.03em;text-decoration:none;border:0;cursor:pointer;animation:pl 2.1s infinite;transition:transform .15s;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#fff8,transparent);transform:skewX(-20deg);animation:sh 3s infinite}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:30px;height:30px}
+@keyframes pl{0%{box-shadow:0 0 0 0 #ff2e8899,0 14px 40px #ff2e8855}70%{box-shadow:0 0 0 24px #ff2e8800,0 14px 40px #ff2e8855}100%{box-shadow:0 0 0 0 #ff2e8800,0 14px 40px #ff2e8855}}
+@keyframes sh{0%,55%{left:-60%}100%{left:130%}}
+.meta{margin-top:14px;color:var(--mu);font-size:14.5px}
+.sh{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.sh a,.sh button{font:700 14px var(--b);padding:8px 14px;border-radius:10px;background:#ffffff0d;border:1px solid var(--ln);color:var(--tx);text-decoration:none;cursor:pointer}
+.sh a:hover,.sh button:hover{border-color:var(--cy)}
+#note{display:none;margin-top:18px;padding:14px 18px;border:1px solid var(--cy);border-radius:14px;background:#21f3e010;max-width:30em;font-size:15px}
+#note.on{display:block}
+#note b{color:var(--cy)}
+
+/* phone stage */
+.stage{position:relative;height:640px;display:grid;place-items:center;perspective:1200px}
+.halo{position:absolute;width:520px;height:520px;border-radius:50%;background:conic-gradient(from 0deg,var(--pk),var(--go),var(--cy),var(--pk));filter:blur(70px);opacity:.42;animation:spin 14s linear infinite}
+.orb{position:absolute;width:470px;height:470px;border-radius:50%;border:1.5px dashed #ffffff26;animation:spin 26s linear infinite}
+.orb i{position:absolute;font:normal 400 34px var(--d);color:var(--go);text-shadow:0 0 16px var(--go)}
+.orb i:nth-child(1){top:-18px;left:48%}.orb i:nth-child(2){right:-14px;top:48%;color:var(--cy);text-shadow:0 0 16px var(--cy)}
+.orb i:nth-child(3){bottom:-18px;left:48%;color:var(--pk);text-shadow:0 0 16px var(--pk)}.orb i:nth-child(4){left:-14px;top:48%}
+.orb.r{width:600px;height:600px;animation-direction:reverse;animation-duration:38s;opacity:.6}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tilt{position:relative;transform-style:preserve-3d;transition:transform .25s ease-out}
+.phone{position:relative;width:280px;aspect-ratio:9/19.4;border-radius:44px;padding:9px;background:linear-gradient(150deg,#5b4a94,#120a24 45%,#3a2a6b);box-shadow:0 0 0 1.5px #7d6bc0,0 40px 90px #000c,0 0 80px #ff2e8855;animation:fl 5.5s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-16px)}}
+.scr{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#000}
+.trk{display:flex;height:100%;transition:transform .9s cubic-bezier(.7,0,.2,1)}
+.trk img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;display:block}
+.scr::after{content:"";position:absolute;top:10px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:12px;background:#000;z-index:2}
+.dots{position:absolute;bottom:-34px;left:0;right:0;display:flex;justify-content:center;gap:8px}
+.dots button{width:26px;height:6px;border-radius:9px;border:0;background:#ffffff33;cursor:pointer;padding:0;transition:.4s}
+.dots button.on{background:var(--pk);width:44px}
+.chip{position:absolute;padding:10px 16px;border-radius:14px;background:#120a24dd;border:1px solid var(--ln);backdrop-filter:blur(8px);font:700 15px var(--b);white-space:nowrap;animation:bob 4.5s ease-in-out infinite;z-index:3;box-shadow:0 10px 30px #0008}
+.chip b{color:var(--go)}
+.c1{left:-18px;top:14%}.c2{right:-10px;top:32%;animation-delay:-1.5s}.c3{left:-6px;bottom:20%;animation-delay:-3s}.c4{right:0;bottom:9%;animation-delay:-2.2s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.lg{position:absolute;top:2px;width:72px;left:50%;margin-left:-36px;z-index:4;filter:drop-shadow(0 0 20px var(--go));animation:bob 4s ease-in-out infinite}
+
+/* marquee */
+.mq{border-block:1px solid var(--ln);background:#ff2e880f;overflow:hidden;white-space:nowrap;position:relative;z-index:1}
+.mq div{display:inline-block;padding:14px 0;animation:mq 34s linear infinite;font:400 22px var(--d);text-transform:uppercase;letter-spacing:.04em}
+.mq span{margin:0 26px}.mq span:nth-child(even){color:var(--go)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:88px 0;position:relative}
+.sub{color:var(--mu);max-width:34em;margin-bottom:36px}
+
+/* demo quiz */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.qc{background:var(--pan);border:1.5px solid var(--ln);border-radius:26px;padding:28px;box-shadow:0 0 60px #7d3cff22}
+.qt{display:flex;justify-content:space-between;color:var(--mu);font-weight:700;font-size:14px}
+.qt b{color:var(--go)}
+.q{font:400 clamp(48px,8vw,76px) var(--d);text-align:center;margin:18px 0 22px;letter-spacing:.03em}
+.qo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qo button{font:700 24px var(--b);padding:16px;border-radius:14px;border:1.5px solid var(--ln);background:#ffffff08;color:var(--tx);cursor:pointer;transition:.15s}
+.qo button:hover{border-color:var(--cy);transform:translateY(-2px)}
+.qo button.ok{background:#21f3e033;border-color:var(--cy);color:var(--cy)}
+.qo button.no{background:#ff2e8833;border-color:var(--pk);color:var(--pk);animation:sk .3s}
+@keyframes sk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.qf{margin-top:14px;font-size:13px;color:var(--mu);text-align:center}
+
+/* features */
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.fg h3{font-size:26px;color:var(--go);margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--pk)}
+.fg ul{list-style:none;padding:0}
+.fg li{padding:7px 0 7px 22px;position:relative;font-size:15.5px;color:#d3c8f0;border-bottom:1px solid #ffffff0d}
+.fg li::before{content:"✓";position:absolute;left:0;color:var(--cy);font-weight:800}
+
+/* steps */
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.st div{padding:26px;border-radius:22px;background:var(--pan);border:1.5px solid var(--ln);position:relative;counter-increment:s}
+.st div::before{content:counter(s);font:400 64px var(--d);color:var(--pk);opacity:.9;display:block;line-height:1;margin-bottom:8px}
+.st h3{font-size:28px;margin-bottom:6px}.st p{color:var(--mu);font-size:15.5px}
+.st{counter-reset:s}
+.rule{margin-top:30px;padding:18px 22px;border-left:4px solid var(--cy);background:#21f3e00d;border-radius:0 12px 12px 0}
+.inst{max-width:660px}.inst ol{padding-left:22px}.inst li{padding:8px 0 8px 6px}
+details{border-top:1px solid var(--ln);padding:18px 0}details:last-of-type{border-bottom:1px solid var(--ln)}
+summary{cursor:pointer;font:400 25px var(--d);text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--pk);font-size:30px;line-height:1}details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#c9bde8;max-width:42em}
+.fin{text-align:center;overflow:hidden}
+.fin img{width:110px;margin-bottom:10px;filter:drop-shadow(0 0 26px var(--go));animation:bob 4s ease-in-out infinite}
+.fin h2{font-size:clamp(50px,11vw,130px)}
+.fin .sh{justify-content:center}
+footer{padding:34px 0 110px;color:var(--mu);font-size:13.5px;border-top:1px solid var(--ln);position:relative;z-index:1}
+footer p+p{margin-top:8px}
+
+/* sticky bar */
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .4s;background:#0d0619ee;backdrop-filter:blur(12px);border-top:1px solid var(--ln);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+#bar.on{transform:none}
+#bar .w{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:0}
+#bar img{width:38px}#bar span{font:400 22px var(--d);text-transform:uppercase;flex:1}
+#bar a{padding:11px 22px;border-radius:12px;background:linear-gradient(120deg,var(--pk),var(--go));color:#1b0410;font:400 20px var(--d);text-transform:uppercase;text-decoration:none}
+
+@media(max-width:900px){
+.hero{padding-top:96px}.hero .w{grid-template-columns:1fr;text-align:center}
+.lead,#note{margin-left:auto;margin-right:auto}.sh{justify-content:center}
+.stage{height:600px}.halo{width:380px;height:380px}.orb{width:360px;height:360px}.orb.r{width:460px;height:460px}
+.phone{width:250px}.c1{left:0}.c2{right:0}
+.demo,.st{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}
+section{padding:60px 0}
+}
+@media(max-width:520px){.fg{grid-template-columns:1fr}.chip{font-size:13px;padding:8px 12px}.btn{font-size:24px;padding:18px 28px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div><div id="glow"></div><canvas id="bg"></canvas>
+
+<nav><div class="w"><a class="br" href="#"><img src="img/logo.png" alt="">Math Baazi</a><a class="pill" href="MathBaazi.apk" download>Free APK</a></div></nav>
+
+<main>
+<div class="hero"><div class="w">
+  <div>
+    <h1>Dimaag lagao.<span>Cash uthao.</span></h1>
+    <p class="lead">₹10 entry, progressive math quiz aur <b>10× tak</b> jeetne ka mauka. Tournaments, knockouts aur leaderboard, sab ek app me.</p>
+    <a id="dl" class="btn" href="MathBaazi.apk" download="MathBaazi.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Download APK</a>
+    <p class="meta" id="meta">Free · Android · 24 MB</p>
+    <div id="note" role="status"><b>Download shuru!</b> File kholo aur Install dabao. Phone roke to Settings me “Install unknown apps” allow karo.</div>
+    <div class="sh"><a id="wa" href="#" target="_blank" rel="noopener">WhatsApp pe bhejo</a><button id="cp" type="button">Link copy karo</button></div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="halo"></div>
+    <div class="orb r"><i>π</i><i>÷</i><i>∑</i><i>−</i></div>
+    <div class="orb"><i>+</i><i>×</i><i>=</i><i>₹</i></div>
+    <div class="tilt" id="tilt">
+      <img class="lg" src="img/logo.png" alt="Math Baazi logo">
+      <div class="phone">
+        <div class="scr"><div class="trk" id="trk">
+          <img src="img/s1.jpg" alt="Home screen"><img src="img/s2.jpg" alt="Recent games"><img src="img/s3.jpg" alt="Wallet"><img src="img/s4.jpg" alt="Leaderboard">
+        </div></div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+    <div class="chip c1">Entry <b>₹10</b></div><div class="chip c2">Jeeto <b>10× tak</b></div>
+    <div class="chip c3">Withdraw <b>UPI</b></div><div class="chip c4"><b>VIP</b> crown 👑</div>
+  </div>
+</div></div>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section><div class="w demo">
+  <div><h2>Ek question try karo</h2><p class="sub">Yahin demo khel ke dekho. Sahi jawab de kar streak banao. Asli game, entry aur inaam app ke andar hain.</p></div>
+  <div class="qc"><div class="qt"><span>Streak <b id="sk">0</b></span><span>Best <b id="bs">0</b></span></div>
+    <div class="q" id="q">7 × 8</div><div class="qo" id="qo"></div><p class="qf">Ye sirf demo hai, isme paise nahi lagte.</p></div>
+</div></section>
+
+<section><div class="w">
+  <h2>App ke andar kya milta hai</h2>
+  <p class="sub">Ye sab features app me maujood hain.</p>
+  <div class="fg">
+    <div><h3>Game</h3><ul><li>Progressive quiz</li><li>₹10 entry fee</li><li>10× tak jeet</li><li>Live tournaments</li><li>Bracket knockouts</li><li>Score points har game me</li><li>Match history</li><li>Accuracy ka record</li><li>Recent 10 sessions</li></ul></div>
+    <div><h3>Wallet</h3><ul><li>Add Money</li><li>Deposit balance alag</li><li>Winnings balance alag</li><li>Winnings kabhi bhi withdraw</li><li>UPI payout</li><li>Withdrawal status check</li><li>Approved payout tracking</li><li>Low balance alert</li><li>Total wallet ek nazar me</li></ul></div>
+    <div><h3>Ranking</h3><ul><li>Global leaderboard</li><li>Best Score tab</li><li>Winnings tab</li><li>Today tab</li><li>Top 3 podium</li><li>Apni rank ka card</li><li>Refresh button</li><li>MMR rating</li><li>Bronze se upar tiers</li></ul></div>
+    <div><h3>Profile</h3><ul><li>Level aur XP bar</li><li>Verified badge</li><li>VIP gold crown</li><li>Multipliers aur perks</li><li>Custom avatar</li><li>Apna player ID</li><li>Notifications</li><li>Player chat</li><li>Refer &amp; Earn</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Shuru karna 3 kadam</h2><p class="sub" style="margin-bottom:28px">Signup ke baad seedha game.</p>
+  <div class="st"><div><h3>Download karo</h3><p>APK install karo aur account banao.</p></div><div><h3>₹10 add karo</h3><p>Game khelne ke liye minimum ₹10 balance chahiye.</p></div><div><h3>Khelo aur nikalo</h3><p>Winnings wallet me aati hain, UPI par withdraw hoti hain.</p></div></div>
+  <p class="rule"><b>Wallet rule:</b> deposit balance sirf game khelne ke liye hai, withdraw nahi hota. Winnings kabhi bhi withdraw kar sakte ho.</p>
+</div></section>
+
+<section><div class="w inst">
+  <h2>Install kaise karein</h2><p class="sub">App Play Store ke bahar se aata hai, isliye ek baar permission deni padegi.</p>
+  <ol><li>Download button dabao, file poori aane do.</li><li>Notification ya Downloads se <b>MathBaazi.apk</b> kholo.</li><li>Phone poochhe to <b>Settings → Install unknown apps</b> allow karo.</li><li>Wapas aa kar <b>Install</b> dabao aur app khol lo.</li></ol>
+</div></section>
+
+<section><div class="w inst">
+  <h2>Sawal-jawab</h2>
+  <details><summary>Download free hai?</summary><p>Haan. Download aur signup free hain. Game khelne par ₹10 entry lagti hai.</p></details>
+  <details><summary>Paise kaise nikalte hain?</summary><p>Winnings wallet se UPI par withdraw hoti hain. Deposit balance withdraw nahi hota.</p></details>
+  <details><summary>Minimum balance kitna?</summary><p>Game shuru karne ke liye kam se kam ₹10.</p></details>
+  <details><summary>Jeet pakki hai?</summary><p>Nahi. Result aapke jawab aur speed par depend karta hai. Utna hi khelo jitna gawa sako.</p></details>
+  <details><summary>Install par warning aayi?</summary><p>App Play Store se nahi aata, isliye Android unknown-source warning dikhata hai. Upar ke steps follow karo.</p></details>
+</div></section>
+
+<section class="fin"><div class="w">
+  <img src="img/logo.png" alt=""><h2>Baazi lagao?</h2>
+  <a class="btn" href="MathBaazi.apk" download="MathBaazi.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0l-5-5m5 5l5-5M4 21h16"/></svg>Download APK</a>
+</div></section>
+</main>
+
+<footer><div class="w"><p>© 2026 Math Baazi</p><p>Ye game paise ke lenden se juda hai aur sirf 18+ ke liye hai. Kuch rajyon me real-money games par pabandi ho sakti hai, apne rajya ke niyam check karo. Zimmedari se khelo.</p></div></footer>
+
+<div id="bar"><div class="w"><img src="img/logo.png" alt=""><span>Math Baazi</span><a href="MathBaazi.apk" download="MathBaazi.apk">Download</a></div></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* slider: screens slide left to right inside the fixed phone */
+var trk=$('#trk'),dots=$('#dots'),n=4,cur=0,tm,hov=false;
+for(var i=0;i<n;i++){var b=document.createElement('button');b.setAttribute('aria-label','Screen '+(i+1));(function(k){b.onclick=function(){go(k)}})(i);dots.appendChild(b)}
+function go(k){cur=(k+n)%n;trk.style.transform='translateX('+(-cur*100)+'%)';[].forEach.call(dots.children,function(d,j){d.className=j==cur?'on':''})}
+$('#stage').addEventListener('mouseenter',function(){hov=true});$('#stage').addEventListener('mouseleave',function(){hov=false});
+go(0);if(!RM)setInterval(function(){if(!hov)go(cur+1)},2800);
+/* tilt */
+var st=$('#stage'),tl=$('#tilt');
+st.addEventListener('pointermove',function(e){if(RM)return;var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;tl.style.transform='rotateY('+(x*18)+'deg) rotateX('+(-y*14)+'deg)'});
+st.addEventListener('pointerleave',function(){tl.style.transform=''});
+/* marquee */
+var f='Progressive Quiz|₹10 Entry|10× Tak Jeeto|Tournaments|Knockouts|Leaderboard|UPI Withdraw|VIP Crown|Refer & Earn|Match History|Level & XP|Player Chat'.split('|'),h='';
+for(var k=0;k<2;k++)f.forEach(function(t){h+='<span>'+t+'</span><span>✦</span>'});$('#mq').innerHTML=h;
+/* demo quiz */
+var streak=0,best=0,ans;
+function nq(){var o=['+','−','×'][Math.random()*3|0],a,b;
+ if(o=='×'){a=2+Math.random()*10|0;b=2+Math.random()*10|0;ans=a*b}else if(o=='+'){a=10+Math.random()*80|0;b=10+Math.random()*80|0;ans=a+b}else{a=30+Math.random()*70|0;b=10+Math.random()*(a-10)|0;ans=a-b}
+ $('#q').textContent=a+' '+o+' '+b;var s={};s[ans]=1;while(Object.keys(s).length<4){var d=ans+((Math.random()*19|0)-9);if(d>=0&&d!=ans)s[d]=1}
+ var arr=Object.keys(s).map(Number).sort(function(){return Math.random()-.5}),bx=$('#qo');bx.innerHTML='';
+ arr.forEach(function(v){var c=document.createElement('button');c.textContent=v;c.onclick=function(){pick(c,v)};bx.appendChild(c)})}
+function pick(c,v){var all=[].slice.call($('#qo').children);all.forEach(function(x){x.disabled=true});
+ if(v==ans){c.className='ok';streak++;if(streak>best)best=streak}else{c.className='no';streak=0;all.forEach(function(x){if(+x.textContent==ans)x.className='ok'})}
+ $('#sk').textContent=streak;$('#bs').textContent=best;setTimeout(nq,v==ans?650:1200)}
+nq();
+/* canvas: drifting math symbols + confetti */
+var cv=$('#bg'),cx=cv.getContext('2d'),W,H,sy=[],cf=[],S='+−×÷=π∑√%₹'.split('');
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+for(var i=0;i<26;i++)sy.push({x:Math.random(),y:Math.random(),s:16+Math.random()*34,v:.12+Math.random()*.3,c:['#ff2e88','#ffc83d','#21f3e0'][i%3],t:S[i%S.length]});
+function boom(){for(var i=0;i<90;i++)cf.push({x:W/2,y:H*.55,vx:(Math.random()-.5)*16,vy:-Math.random()*15-3,r:Math.random()*6,c:['#ff2e88','#ffc83d','#21f3e0','#fff'][i%4],l:100})}
+function draw(){cx.clearRect(0,0,W,H);cx.font='800 24px Anton,Impact,sans-serif';cx.globalAlpha=.09;
+ sy.forEach(function(p){cx.fillStyle=p.c;cx.font='400 '+p.s+'px Anton,Impact,sans-serif';cx.fillText(p.t,p.x*W,p.y*H);if(!RM){p.y-=p.v/H*60;if(p.y<-.05){p.y=1.05;p.x=Math.random()}}});
+ cx.globalAlpha=1;cf=cf.filter(function(p){return p.l>0});
+ cf.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.5;p.l--;cx.globalAlpha=Math.min(1,p.l/40);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r+3,p.r+3)});
+ requestAnimationFrame(draw)}draw();
+/* download feedback */
+[].forEach.call(document.querySelectorAll('a[href$=".apk"]'),function(a){a.addEventListener('click',function(){$('#note').className='on';if(!RM)boom();if(typeof gtag==='function')gtag('event','apk_download')})});
+/* scroll: progress, sticky bar */
+addEventListener('scroll',function(){var d=document.documentElement,p=d.scrollTop/(d.scrollHeight-innerHeight);$('#prog').style.width=(p*100)+'%';$('#bar').className=scrollY>innerHeight*.8?'on':''},{passive:true});
+/* glow */
+addEventListener('pointermove',function(e){var g=$('#glow');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+/* share */
+var msg='Math Baazi: math quiz khelo, ₹10 entry, 10× tak jeeto. Free APK: '+location.href;
+$('#wa').href='https://wa.me/?text='+encodeURIComponent(msg);
+$('#cp').onclick=function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){b.textContent='Copy ho gaya!'},function(){b.textContent='Address bar se copy karo'});setTimeout(function(){b.textContent='Link copy karo'},2000)};
+if(!/Android/i.test(navigator.userAgent))$('#meta').textContent='Ye Android APK hai. Phone me kholne ke liye link bhejo. · 24 MB';
+})();
+</script>
+</body>
+</html>
